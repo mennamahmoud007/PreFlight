@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pitch-sections', function (Blueprint $table) {
             $table->id();
-            $table ->foreignId('project_id')->constrained()->onDelete('cascade');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->string('section_type');
             $table->text('content')->nullable();
             $table->timestamps();

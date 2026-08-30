@@ -15,20 +15,20 @@ return new class extends Migration
             $table->id();
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
 
-            $table ->unsignedtinyInteger('problem_score');
-            $table ->unsignedtinyInteger('target_score');
-            $table ->unsignedtinyInteger('value_score');
-            $table ->unsignedtinyInteger('feasability_score');
-            $table ->unsignedtinyInteger('differentiation_score');
-            $table ->unsignedtinyInteger('overall_score');
+            $table->unsignedtinyInteger('problem_score');
+            $table->unsignedtinyInteger('target_score');
+            $table->unsignedtinyInteger('value_score');
+            $table->unsignedtinyInteger('feasability_score');
+            $table->unsignedtinyInteger('differentiation_score');
+            $table->unsignedtinyInteger('overall_score');
 
-            $table ->text('summary')->nullable();
+            $table->text('summary')->nullable();
 
-            $table ->json('strengths')->nullable();
-            $table ->json('weaknesses')->nullable();
-            $table ->json('risks')->nullable();
-            $table ->json('critical_questions')->nullable();
-            $table ->json('improvements')->nullable();
+            $table->json('strengths')->nullable();
+            $table->json('weaknesses')->nullable();
+            $table->json('risks')->nullable();
+            $table->json('critical_questions')->nullable();
+            $table->json('improvements')->nullable();
 
             $table->timestamps();
         });

@@ -15,17 +15,20 @@ class Project extends Model
         'industry',
         'status',
     ];
-    
-     
+
+    /**
+     * @return HasOne<Analysis, $this>
+     */
     public function analysis(): HasOne
     {
         return $this->hasOne(Analysis::class);
     }
 
+    /**
+     * @return HasMany<PitchSection, $this>
+     */
     public function pitchSections(): HasMany
     {
         return $this->hasMany(PitchSection::class);
     }
-        
-        
 }
