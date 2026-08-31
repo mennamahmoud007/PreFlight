@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pitch_sections', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->string('section_type');
-            $table->text('content')->nullable();
-            $table->timestamps();
+        Schema::table('projects', function (Blueprint $table) {
+            $table->string('device_id')->index();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pitch_sections');
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropColumn('device_id');
+        });
     }
 };

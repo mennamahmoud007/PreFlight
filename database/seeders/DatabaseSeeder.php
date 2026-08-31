@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Analysis;
+use App\Models\PitchSection;
+use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $demoDeviceId = 'demo-device';
+        Project::factory(10)
+            ->create([
+                'device_id' => $demoDeviceId,
+            ])
+            ->each(function ($project) {
+                $project->analysis()->create(
+                    Analysis::factory()->make()->toArray()
+                );
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+                $project->pitchSection()->createMany(
+                    PitchSection::factory(5)->make()->toArray()
+                );
+            });
     }
 }
