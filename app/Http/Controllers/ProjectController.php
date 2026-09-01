@@ -78,8 +78,12 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     // delete api/projects/{project}
-    public function destroy(string $id)
+    public function destroy(Request $request, string $id)
     {
-        //
+        $project = Project::where('device_id', $request->device_id)
+            ->findOrFail($id);
+        $project->delete();
+
+        return response()->json(['message' => 'Project deleted successfully']);
     }
 }
