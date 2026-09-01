@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Resources\ProjectResource;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -64,9 +65,13 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      */
     // patch api/projects/{project}
-    public function update(Request $request, string $id)
+    public function update(UpdateProjectRequest $request, string $id)
     {
-        //
+        $project = Project::where('device_id', $request->device_id)
+            ->findOrFail($id);
+        $project->update($request->validated());
+
+        return new ProjectResource($project);
     }
 
     /**
