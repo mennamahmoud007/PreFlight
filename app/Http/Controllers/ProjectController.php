@@ -52,9 +52,12 @@ class ProjectController extends Controller
      * Display the specified resource.
      */
     // get api/projects/{project}
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
-        //
+        $project = Project::where('device_id', $request->device_id)
+            ->findOrFail($id);
+
+        return new ProjectResource($project);
     }
 
     /**
