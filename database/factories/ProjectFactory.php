@@ -19,6 +19,15 @@ class ProjectFactory extends Factory
      */
     public function definition(): array
     {
+        $status = fake()->randomElement([
+            'checking',
+            'analyzing',
+            'stress_testing',
+            'improving',
+            'pitching',
+            'launch_ready',
+        ]);
+
         return [
             'device_id' => fake()->uuid(),
             'name' => fake()->sentence(3),
@@ -31,7 +40,13 @@ class ProjectFactory extends Factory
                 'Education',
                 'Food',
             ]),
-            'status' => fake()->randomElement(['draft', 'analyzed', 'pitch-ready']),
+            'status' => $status,
+            'score' => $status === 'checking'
+             ? null
+            : fake()->numberBetween(50, 95),
+            'last_checked_at' => $status === 'checking'
+             ? null
+            : fake()->dateTimeBetween('-30 days', 'now'),
         ];
     }
 }

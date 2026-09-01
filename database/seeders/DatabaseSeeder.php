@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $demoDeviceId = 'demo-device';
+        $demoDeviceId = '550e8400-e29b-41d4-a716-446655440000';
         Project::factory(10)
             ->create([
                 'device_id' => $demoDeviceId,

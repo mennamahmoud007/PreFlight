@@ -2,16 +2,12 @@
 
 namespace App\Models;
 
-use Database\Factories\AnalysisFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Analysis extends Model
 {
-    /**
-     * @use HasFactory<AnalysisFactory>
-     */
     use HasFactory;
 
     protected $fillable = [
@@ -30,6 +26,9 @@ class Analysis extends Model
         'improvements',
     ];
 
+    // when i will use the model to create a new analysis,
+    //  i will be able to pass an array of strengths, weaknesses, risks, critical questions, and improvements
+    // and it will be automatically casted to an array when i retrieve it from the database
     protected $casts = [
         'strengths' => 'array',
         'weaknesses' => 'array',

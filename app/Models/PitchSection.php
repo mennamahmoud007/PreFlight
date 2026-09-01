@@ -2,16 +2,12 @@
 
 namespace App\Models;
 
-use Database\Factories\PitchSectionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PitchSection extends Model
 {
-    /**
-     * @use HasFactory<PitchSectionFactory>
-     */
     use HasFactory;
 
     protected $fillable = [
