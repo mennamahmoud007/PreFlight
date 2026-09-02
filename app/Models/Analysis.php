@@ -29,7 +29,7 @@ class Analysis extends Model
     ];
 
     // when i will use the model to create a new analysis,
-    //  i will be able to pass an array of strengths, weaknesses, risks, critical questions, and improvements
+    //  i will be able to pass an array of strengths, weaknesses, risks, critical questions, and assumptions
     // and it will be automatically casted to an array when i retrieve it from the database
     protected $casts = [
         'strengths' => 'array',

@@ -20,8 +20,9 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         $status = fake()->randomElement([
-            'analyzing',
-            'stress_testing',
+            'checking',
+            'analyzed',
+            'stress_tested',
             'improving',
             'pitching',
             'launch_ready',
