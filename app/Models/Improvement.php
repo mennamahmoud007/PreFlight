@@ -2,18 +2,23 @@
 
 namespace App\Models;
 
+use Database\Factories\ImprovementFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PitchSection extends Model
+class Improvement extends Model
 {
+    /** @use HasFactory<ImprovementFactory> */
     use HasFactory;
 
     protected $fillable = [
         'project_id',
-        'section_type',
-        'content',
+        'weakness',
+        'opportunity',
+        'why_it_matters',
+        'suggested_action',
+        'status',
     ];
 
     public function project(): BelongsTo

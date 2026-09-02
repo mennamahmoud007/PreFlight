@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Analysis;
+use App\Models\Improvement;
 use App\Models\PitchSection;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -29,6 +30,9 @@ class DatabaseSeeder extends Seeder
 
                 $project->pitchSection()->createMany(
                     PitchSection::factory(5)->make()->toArray()
+                );
+                $project->improvements()->createMany(
+                    Improvement::factory(3)->make()->toArray()
                 );
             });
     }

@@ -23,7 +23,9 @@ class Analysis extends Model
         'weaknesses',
         'risks',
         'critical_questions',
-        'improvements',
+        'primary_concern',
+        'assumptions',
+        'risk_level',
     ];
 
     // when i will use the model to create a new analysis,
@@ -34,12 +36,9 @@ class Analysis extends Model
         'weaknesses' => 'array',
         'risks' => 'array',
         'critical_questions' => 'array',
-        'improvements' => 'array',
+        'assumptions' => 'array',
     ];
 
-    /**
-     * @return BelongsTo<Project, $this>
-     */
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);

@@ -27,19 +27,18 @@ class Project extends Model
         'last_checked_at' => 'datetime',
     ];
 
-    /**
-     * @return HasOne<Analysis, $this>
-     */
     public function analysis(): HasOne
     {
         return $this->hasOne(Analysis::class);
     }
 
-    /**
-     * @return HasMany<PitchSection, $this>
-     */
     public function pitchSection(): HasMany
     {
         return $this->hasMany(PitchSection::class);
+    }
+
+    public function improvements(): HasMany
+    {
+        return $this->hasMany(Improvement::class);
     }
 }

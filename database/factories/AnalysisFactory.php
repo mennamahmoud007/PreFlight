@@ -20,14 +20,12 @@ class AnalysisFactory extends Factory
     public function definition(): array
     {
         return [
-            'project_id' => null, // You can set this to a valid project ID if needed
-
-            'problem_score' => fake()->numberBetween(50, 100),
-            'target_score' => fake()->numberBetween(50, 100),
-            'value_score' => fake()->numberBetween(50, 100),
-            'feasability_score' => fake()->numberBetween(50, 100),
-            'differentiation_score' => fake()->numberBetween(50, 100),
-            'overall_score' => fake()->numberBetween(50, 100),
+            'problem_score' => fake()->numberBetween(60, 95),
+            'target_score' => fake()->numberBetween(60, 95),
+            'value_score' => fake()->numberBetween(60, 95),
+            'feasability_score' => fake()->numberBetween(60, 95),
+            'differentiation_score' => fake()->numberBetween(50, 95),
+            'overall_score' => fake()->numberBetween(60, 95),
 
             'summary' => fake()->paragraph(),
 
@@ -39,19 +37,40 @@ class AnalysisFactory extends Factory
             'weaknesses' => [
                 fake()->sentence(),
                 fake()->sentence(),
+                fake()->sentence(),
             ],
+
             'risks' => [
-                fake()->sentence(),
-                fake()->sentence(),
+                [
+                    'level' => 'high',
+                    'description' => fake()->sentence(),
+                ],
+                [
+                    'level' => 'medium',
+                    'description' => fake()->sentence(),
+                ],
+                [
+                    'level' => 'low',
+                    'description' => fake()->sentence(),
+                ],
             ],
+
+            'primary_concern' => fake()->paragraph(),
+
             'critical_questions' => [
                 fake()->sentence(),
                 fake()->sentence(),
+                fake()->sentence(),
+                fake()->sentence(),
+                fake()->sentence(),
             ],
-            'improvements' => [
+            'assumptions' => [
+                fake()->sentence(),
+                fake()->sentence(),
                 fake()->sentence(),
                 fake()->sentence(),
             ],
+            'risk_level' => fake()->randomElement(['low', 'medium', 'high']),
         ];
     }
 }

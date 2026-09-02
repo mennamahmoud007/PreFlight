@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $project = Project::create([
             ...$request->validated(),
             'device_id' => $request->device_id,
-            'status' => 'checking',
+            'status' => 'analyzing',
         ]);
 
         return new ProjectResource($project);
